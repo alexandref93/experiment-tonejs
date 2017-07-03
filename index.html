@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Experiment ToneJS</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+	</head>
+	<body>
+		<script src="waveform.js"></script>
+    <script src="tone.js"></script>
+		<script>
+
+      var synth = new Tone.Synth().toMaster();
+
+      var loop = new Tone.Loop(function(time){
+      	synth.triggerAttackRelease("D4", "10n", time);
+        // synth.triggerAttackRelease("E4", "8n", time);
+      }, "1n");
+
+      loop.start("1m");
+
+      Tone.Transport.start();
+		</script>
+	</body>
+</html>
